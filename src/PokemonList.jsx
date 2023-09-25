@@ -1,7 +1,7 @@
 import React from 'react'
 
-const PokemonList = ({id, image, name, type, _callback }) => {
-  const style = type + " thumb-container";
+const PokemonList = ({id, image, name, type}) => {
+  const style = `thumb-container ${type}`;
   
   return (
     <div className={style}>

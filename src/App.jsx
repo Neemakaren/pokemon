@@ -3,6 +3,7 @@ import './App.css';
 import PokemonList from './PokemonList';
 
 
+
 function App() {
  const [pokemon, setPokemon] = useState([]);
  const [currentPageUrl, setCurrentPageUrl] = useState('https://pokeapi.co/api/v2/pokemon')
@@ -22,7 +23,7 @@ function App() {
         const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
         const data =  await res.json()
         setPokemon( currentList => [...currentList, data])
-        await pokemon.sort((a, b) => a.id - b.id)
+        // await pokemon.sort((a, b) => a.id - b.id)
       })
     }
     createPokemonObject(data.results)
@@ -36,7 +37,7 @@ function App() {
 
   return (
     <div className="app-contaner">
-      <h1>Pokemon Evolution</h1>
+      <h1 className='title'>Pokemon</h1>
       <div className="pokemon-container">
         <div className="all-container">
           {pokemon.map( (pokemonStats, index) => 
@@ -46,6 +47,8 @@ function App() {
               image={pokemonStats.sprites.other.dream_world.front_default}
               name={pokemonStats.name}
               type={pokemonStats.types[0].type.name}
+              height = {pokemon.height}
+              weight = {pokemon.weight}
             />)
             }
           
